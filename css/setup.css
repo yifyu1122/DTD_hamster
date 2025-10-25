@@ -1,0 +1,539 @@
+/* 小窩佈置頁面專用樣式 */
+.page-header {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #FFF 100%);
+    padding: 6rem 0;
+    margin-top: 72px;
+    overflow: hidden;
+    position: relative;
+}
+
+.header-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+}
+
+.header-text {
+    position: relative;
+    z-index: 2;
+}
+
+.page-title {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 3.5rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.page-description {
+    font-size: 1.2rem;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+}
+
+.header-accent {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    color: var(--color-wood);
+    letter-spacing: 0.2em;
+    opacity: 0.7;
+}
+
+.header-visual {
+    position: relative;
+    height: 400px;
+}
+
+.visual-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.visual-image {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(193, 162, 110, 0.2);
+    transition: transform 0.5s ease;
+}
+
+.visual-image.top {
+    right: 0;
+    top: 0;
+    transform: rotate(5deg);
+    z-index: 2;
+}
+
+.visual-image.bottom {
+    right: 60px;
+    top: 60px;
+    transform: rotate(-5deg);
+    z-index: 1;
+}
+
+.visual-dots {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-image: radial-gradient(var(--color-wood) 2px, transparent 2px);
+    background-size: 20px 20px;
+    opacity: 0.2;
+    top: -30px;
+    right: -30px;
+    z-index: 0;
+}
+
+.setup-content {
+    padding: 6rem 0;
+    background-color: var(--color-secondary);
+    position: relative;
+}
+
+.setup-section {
+    margin-bottom: 6rem;
+    position: relative;
+}
+
+.section-title {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 2.5rem;
+    color: var(--color-text);
+    text-align: left;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-wood);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.items-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    padding: 2rem;
+    position: relative;
+}
+
+.items-flow::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+        transparent 0%,
+        var(--color-wood) 10%,
+        var(--color-wood) 90%,
+        transparent 100%
+    );
+    opacity: 0.2;
+}
+
+.item-block {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    position: relative;
+    padding: 2rem;
+}
+
+.item-block:nth-child(even) {
+    flex-direction: row-reverse;
+    margin-left: auto;
+}
+
+.item-media {
+    flex: 0 0 300px;
+    position: relative;
+}
+
+.media-circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: var(--color-primary);
+    transition: transform 0.5s ease;
+}
+
+.media-accent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+    border: 2px dashed var(--color-wood);
+    opacity: 0.3;
+    z-index: -1;
+    transition: transform 0.5s ease;
+}
+
+.item-block:hover .media-circle {
+    transform: translateY(-10px);
+}
+
+.item-block:hover .media-accent {
+    transform: translate(5px, -5px);
+}
+
+.image-placeholder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    font-size: 1.1rem;
+    opacity: 0.7;
+}
+
+.item-info {
+    flex: 1;
+    position: relative;
+}
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-header h4 {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 2rem;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.item-number {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 3.5rem;
+    color: var(--color-wood);
+    opacity: 0.2;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.item-info p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.item-info p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background-color: var(--color-wood);
+    opacity: 0.3;
+}
+
+.item-content h4 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.3rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+}
+
+.item-content p {
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.features-list {
+    list-style: none;
+    margin-left: 0.5rem;
+}
+
+.features-list li {
+    position: relative;
+    padding-left: 1.2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+.features-list li::before {
+    content: "•";
+    color: var(--color-wood);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* 玩具區塊樣式 */
+.toys-section {
+    margin: 4rem 0;
+    position: relative;
+}
+
+.toys-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100vw;
+    right: -100vw;
+    bottom: 0;
+    background-color: var(--color-primary);
+    z-index: -1;
+}
+
+.toys-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.toys-tag {
+    font-family: 'Quicksand', sans-serif;
+    background: var(--color-wood);
+    color: var(--color-primary);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+}
+
+.toys-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.toy-item {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.toy-item:hover {
+    transform: translateX(10px);
+}
+
+.toy-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.toy-item:nth-child(even):hover {
+    transform: translateX(-10px);
+}
+
+.toy-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--color-secondary);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    font-size: 1.1rem;
+    opacity: 0.7;
+    position: relative;
+}
+
+.toy-content {
+    flex: 1;
+}
+
+.toy-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.toy-title h4 {
+    font-size: 1.8rem;
+    color: var(--color-text);
+    font-family: 'Sawarabi Mincho', serif;
+    margin: 0;
+}
+
+.category-label {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.3rem 1rem;
+    background: var(--color-wood);
+    color: var(--color-primary);
+    border-radius: 15px;
+    white-space: nowrap;
+}
+
+.toy-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    position: relative;
+    padding-left: 1rem;
+}
+
+.toy-description::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background-color: var(--color-wood);
+    opacity: 0.3;
+}
+
+/* 購物小提醒樣式 */
+.tips-section {
+    background: var(--color-primary);
+    border-radius: 30px;
+    padding: 4rem 3rem;
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.tips-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.tips-wave {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    height: 60px;
+    background: 
+        radial-gradient(circle at 50% 100%, 
+            transparent 20px, 
+            var(--color-wood) 21px 22px, 
+            transparent 23px) 50% 100% / 50px 50px;
+    opacity: 0.1;
+}
+
+.tips-content {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tips-list {
+    position: relative;
+    z-index: 1;
+}
+
+.tip-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+.tip-item:hover {
+    transform: translateX(10px);
+}
+
+.tip-icon {
+    font-size: 2rem;
+    background: var(--color-secondary);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.tip-text {
+    flex: 1;
+    font-size: 1.1rem;
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+.tips-decoration {
+    position: absolute;
+    top: 50%;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: var(--color-wood);
+    opacity: 0.05;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .toys-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .toys-tag {
+        margin: 0 auto;
+    }
+    
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .toy-content {
+        padding: 1.2rem;
+    }
+
+    .tip-card {
+        padding: 1.5rem;
+    }
+}

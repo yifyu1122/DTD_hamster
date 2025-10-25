@@ -1,0 +1,242 @@
+/* 百科頁面專用樣式 */
+.encyclopedia-content {
+    padding: 4rem 0;
+    background-color: var(--color-secondary);
+}
+
+.species-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.species-item {
+    display: flex;
+    gap: 4rem;
+    position: relative;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+}
+
+.species-item:hover {
+    transform: translateX(10px);
+}
+
+.species-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.species-item:nth-child(even):hover {
+    transform: translateX(-10px);
+}
+
+.species-media {
+    position: relative;
+    flex: 0 0 300px;
+}
+
+.species-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--color-primary);
+    position: relative;
+}
+
+.image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+.species-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--color-wood);
+    color: var(--color-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    z-index: 1;
+}
+
+.species-content {
+    flex: 1;
+    padding: 1rem 0;
+}
+
+.species-header {
+    margin-bottom: 2rem;
+}
+
+.species-header h3 {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 2.5rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+.species-name {
+    display: inline-block;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    color: var(--color-wood);
+    padding: 0.3rem 1rem;
+    background: rgba(193, 162, 110, 0.1);
+    border-radius: 15px;
+}
+
+.species-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.detail-group {
+    position: relative;
+    padding-left: 1rem;
+}
+
+.detail-group::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-wood);
+    opacity: 0.3;
+}
+
+.detail-label {
+    display: block;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+.detail-group p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.spec-item {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(193, 162, 110, 0.1);
+    border-radius: 15px;
+}
+
+.spec-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-wood);
+    margin-bottom: 0.5rem;
+}
+
+.spec-value {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* 響應式設計 */
+@media (max-width: 1024px) {
+    .species-item {
+        gap: 3rem;
+        padding: 1.5rem;
+    }
+
+    .species-media {
+        flex: 0 0 250px;
+    }
+
+    .species-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .species-header h3 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .species-item,
+    .species-item:nth-child(even) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .species-item:hover,
+    .species-item:nth-child(even):hover {
+        transform: translateY(-10px);
+    }
+
+    .species-media {
+        flex: none;
+    }
+
+    .species-badge {
+        top: auto;
+        bottom: 0;
+        right: 0;
+    }
+
+    .detail-group {
+        text-align: left;
+    }
+
+    .specs-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .species-media {
+        width: 200px;
+    }
+
+    .species-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .species-header h3 {
+        font-size: 1.8rem;
+    }
+
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .spec-item {
+        padding: 0.8rem;
+    }
+}

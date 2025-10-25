@@ -1,0 +1,379 @@
+/* 照料頁面專用樣式 - 日系雜誌風格 */
+.page-header {
+    background-color: var(--color-secondary);
+    padding: 8rem 0;
+    margin-top: 72px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.header-text {
+    flex: 0 1 50%;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+.header-decoration {
+    flex: 0 1 50%;
+    position: relative;
+    height: 400px;
+}
+
+.header-image {
+    width: 300px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    animation: float 3s ease-in-out infinite;
+}
+
+.decoration-circle {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: radial-gradient(circle, var(--color-wood) 0%, transparent 70%);
+    opacity: 0.1;
+    border-radius: 50%;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.decoration-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--color-wood) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.1;
+    animation: fadeIn 2s ease;
+}
+
+.page-title {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+    position: relative;
+    letter-spacing: 0.1em;
+    line-height: 1.3;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-50%) translateX(-20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.1; }
+    50% { transform: translateY(-50%) scale(1.1); opacity: 0.15; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.1; }
+}
+
+.page-description {
+    font-size: 1.2rem;
+    color: var(--color-text);
+    opacity: 0.9;
+    font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: 0.05em;
+    position: relative;
+}
+
+@keyframes gradient-shift {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 內容區塊樣式 */
+.care-content {
+    padding: 6rem 0;
+    background: linear-gradient(45deg, var(--color-secondary) 0%, white 100%);
+}
+
+.magazine-section {
+    margin-bottom: 10rem;
+    position: relative;
+    padding: 4rem 2rem;
+    background: url('images/care/pattern-bg.png') repeat;
+    background-size: 200px;
+    background-attachment: fixed;
+    opacity: 0.97;
+}
+
+.magazine-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, white 0%, rgba(255,255,255,0.8) 50%, white 100%);
+    pointer-events: none;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6rem;
+    position: relative;
+    padding: 2rem;
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(193, 162, 110, 0.1);
+}
+
+.section-number {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-wood);
+    opacity: 0.2;
+    position: absolute;
+    left: -2rem;
+    top: -2rem;
+}
+
+.section-header h3 {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 2rem;
+    color: var(--color-text);
+    margin-left: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.diagonal-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-wood);
+    opacity: 0.3;
+    transform: rotate(-5deg);
+    z-index: 0;
+}
+
+.magazine-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+.magazine-article {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    position: relative;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    background: rgba(255,255,255,0.95);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(193, 162, 110, 0.12);
+}
+
+.magazine-article::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: url('images/care/deco-leaves.png') no-repeat center/contain;
+    opacity: 0.1;
+    top: -20px;
+    left: -20px;
+    transform: rotate(-45deg);
+}
+
+.magazine-article.reverse {
+    grid-template-columns: 1.5fr 1fr;
+    margin-left: auto;
+}
+
+.magazine-article.reverse::before {
+    left: auto;
+    right: -20px;
+    transform: rotate(45deg);
+}
+
+.article-image {
+    background-color: var(--color-primary);
+    border-radius: 20px;
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(193, 162, 110, 0.15);
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.article-image:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.image-placeholder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--color-text);
+    opacity: 0.7;
+}
+
+.article-content {
+    padding: 2rem;
+    position: relative;
+}
+
+.article-content h4 {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+}
+
+.highlight-text {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
+    color: var(--color-wood);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+}
+
+.styled-list {
+    list-style: none;
+    padding: 0;
+}
+
+.styled-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.styled-list li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--color-wood);
+    font-weight: bold;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-content {
+    color: var(--color-text);
+}
+
+.tips-list {
+    margin-top: 1rem;
+    padding-left: 1.2rem;
+}
+
+.tips-list li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.tips-list li::marker {
+    color: var(--color-wood);
+}
+
+/* 警告卡片樣式 */
+.care-card.warning {
+    background-color: #FFF5F5;
+    border-left: 4px solid #FFA7A7;
+}
+
+/* 注意事項區塊 */
+.notice-box {
+    background-color: var(--color-primary);
+    border-radius: var(--radius-medium);
+    padding: 2rem;
+}
+
+.notice-list {
+    list-style: none;
+}
+
+.notice-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.notice-list li::before {
+    content: "•";
+    color: var(--color-wood);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 4rem 0 2rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .care-section {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .care-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .care-card {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 1.6rem;
+    }
+
+    .section-header h3 {
+        font-size: 1.5rem;
+    }
+
+    .notice-box {
+        padding: 1.5rem;
+    }
+}

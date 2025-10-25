@@ -1,0 +1,623 @@
+/* 全域重置與基本設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #FBF1EA;
+    --color-secondary: #EFEDE6;
+    --color-tertiary: #D7D3C1;
+    --color-wood: #C1A26E;
+    --color-text: #5B4636;
+    --shadow-soft: 0 4px 10px rgba(91, 70, 54, 0.05);
+    --radius-small: 8px;
+    --radius-medium: 16px;
+    --radius-large: 24px;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-text);
+    line-height: 1.6;
+    background-color: var(--color-primary);
+}
+
+/* 導覽列樣式 */
+.main-nav {
+    background-color: rgba(251, 241, 234, 0.95);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(8px);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 1.5rem;
+    color: var(--color-text);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-wood);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero 區塊樣式 */
+.hero {
+    height: 80vh;
+    background-color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 72px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('path-to-your-pattern.png') repeat;
+    opacity: 0.1;
+}
+
+.hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+}
+
+.main-title {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+}
+
+.hero-text {
+    font-size: 1.2rem;
+    line-height: 2;
+    color: var(--color-text);
+}
+
+/* 卡片區塊樣式 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.intro-section {
+    padding: 6rem 0;
+    background-color: var(--color-primary);
+}
+
+.intro-block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8rem;
+    gap: 6rem;
+}
+
+.intro-block:last-child {
+    margin-bottom: 0;
+}
+
+.intro-block.reverse {
+    flex-direction: row-reverse;
+}
+
+.intro-content {
+    flex: 1;
+    position: relative;
+}
+
+.intro-text-wrap {
+    position: relative;
+    max-width: 500px;
+}
+
+.intro-text-wrap h3 {
+    color: var(--color-text);
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.intro-text-wrap p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+}
+
+.intro-media {
+    flex: 1;
+    position: relative;
+}
+
+.intro-media img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-soft);
+}
+
+.intro-media::after {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    bottom: -2rem;
+    width: 100%;
+    background-color: var(--color-secondary);
+    border-radius: var(--radius-large);
+    z-index: -1;
+}
+
+.intro-block:nth-child(odd) .intro-media::after {
+    right: 2rem;
+}
+
+.intro-block:nth-child(even) .intro-media::after {
+    left: 2rem;
+}
+
+/* 響應式設計 */
+@media (max-width: 1024px) {
+    .intro-block {
+        gap: 4rem;
+        margin-bottom: 6rem;
+    }
+
+    .intro-text-wrap h3 {
+        font-size: 1.8rem;
+    }
+
+    .intro-text-wrap p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro-block,
+    .intro-block.reverse {
+        flex-direction: column;
+        gap: 3rem;
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+
+    .intro-text-wrap {
+        margin: 0 auto;
+    }
+
+    .intro-media::after {
+        top: 1.5rem;
+        bottom: -1.5rem;
+    }
+
+    .intro-block:nth-child(odd) .intro-media::after,
+    .intro-block:nth-child(even) .intro-media::after {
+        left: 1.5rem;
+        right: -1.5rem;
+    }
+}
+
+/* 區塊標題樣式 */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.header-accent {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--color-wood);
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.section-title {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 2.5rem;
+    color: var(--color-text);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-wood);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* 影片區塊樣式 */
+.video-section {
+    background-color: var(--color-secondary);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-section::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--color-wood);
+    border-radius: 50%;
+    opacity: 0.03;
+    top: -150px;
+    left: -150px;
+}
+
+.video-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.video-main {
+    position: relative;
+}
+
+.placeholder-video {
+    background: linear-gradient(45deg, var(--color-tertiary), var(--color-primary));
+    height: 400px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    overflow: hidden;
+    position: relative;
+}
+
+.video-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--color-wood);
+}
+
+.video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.video-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.video-item:hover {
+    transform: translateX(10px);
+}
+
+.video-thumbnail {
+    width: 120px;
+    height: 80px;
+    background: var(--color-tertiary);
+    border-radius: 10px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.video-info {
+    flex: 1;
+}
+
+.video-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.video-info p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* 書籍區塊樣式 */
+.books-section {
+    padding: 6rem 0;
+}
+
+.books-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.book-item {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.book-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.book-media {
+    position: relative;
+    flex: 0 0 300px;
+}
+
+.book-cover {
+    background: linear-gradient(45deg, var(--color-wood), var(--color-tertiary));
+    height: 400px;
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.cover-content {
+    text-align: center;
+}
+
+.cover-content h3 {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.book-tag {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.book-shadow {
+    position: absolute;
+    bottom: -20px;
+    left: 10%;
+    right: 10%;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    filter: blur(10px);
+    border-radius: 50%;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.book-pages, .book-year {
+    color: var(--color-wood);
+    font-size: 0.9rem;
+}
+
+.book-info h4 {
+    font-size: 2rem;
+    font-family: 'Sawarabi Mincho', serif;
+    margin-bottom: 1rem;
+}
+
+.book-info p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.book-topics {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.topic-tag {
+    background: var(--color-secondary);
+    color: var(--color-text);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* 頁尾樣式 */
+.site-footer {
+    background-color: var(--color-tertiary);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-note {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* 響應式設計 */
+@media (max-width: 1024px) {
+    .video-wrapper {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .book-item {
+        padding: 0 2rem;
+    }
+
+    .book-media {
+        flex: 0 0 250px;
+    }
+
+    .book-cover {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .hero {
+        height: auto;
+        min-height: 60vh;
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .hero-text {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .book-item,
+    .book-item:nth-child(even) {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .book-media {
+        flex: none;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .book-cover {
+        height: 300px;
+    }
+
+    .book-meta {
+        justify-content: center;
+    }
+
+    .book-topics {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    .main-title {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .video-item {
+        flex-direction: column;
+    }
+
+    .video-thumbnail {
+        width: 100%;
+        height: 120px;
+    }
+
+    .book-cover {
+        height: 250px;
+    }
+
+    .book-info h4 {
+        font-size: 1.5rem;
+    }
+
+    .book-info p {
+        font-size: 1rem;
+    }
+}
